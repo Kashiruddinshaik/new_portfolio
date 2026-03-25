@@ -444,6 +444,24 @@ body:not(.cur-hover) #spotlight{opacity:1;}
 @keyframes envelopeFlyOut{0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1;}30%{transform:translate(20px,-30px) rotate(8deg) scale(.95);opacity:1;}100%{transform:translate(-10px,-120px) rotate(-5deg) scale(.5);opacity:0;}}
 @keyframes successPop{0%{opacity:0;transform:scale(.7);}60%{transform:scale(1.08);}100%{opacity:1;transform:scale(1);}}
 
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg2);transition:background .4s;}
+.testi-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+.testi-sidebar p{font-size:15px;line-height:1.75;color:var(--mist);margin-top:16px;}
+.testi-cards{display:flex;flex-direction:column;gap:24px;}
+.testi-card{background:var(--card-bg);border:1px solid var(--card-border);padding:48px;position:relative;overflow:hidden;transition:all .4s var(--ease);}
+.testi-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.1);}
+.testi-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--gold),var(--rust));transition:height .5s var(--ease);}
+.testi-card:hover::before{height:100%;}
+.testi-quote-mark{font-family:var(--font-serif);font-size:96px;font-weight:300;color:var(--gold);line-height:.7;opacity:.18;position:absolute;top:24px;right:32px;font-style:italic;pointer-events:none;}
+.testi-text{font-family:var(--font-serif);font-size:19px;line-height:1.75;color:var(--charcoal);font-style:italic;margin-bottom:32px;position:relative;z-index:1;}
+.testi-divider{width:32px;height:1px;background:var(--gold);margin-bottom:24px;}
+.testi-author{display:flex;align-items:center;gap:16px;}
+.testi-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--rust));display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:20px;font-weight:600;color:#fff;flex-shrink:0;}
+.testi-name{font-size:15px;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+.testi-role{font-family:var(--font-mono);font-size:10px;color:var(--rust);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.testi-org{font-family:var(--font-mono);font-size:10px;color:var(--mist);letter-spacing:.06em;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
   nav{padding:22px 32px;}
@@ -453,7 +471,7 @@ body:not(.cur-hover) #spotlight{opacity:1;}
   .hero-scroll-hint,.hero-stats{display:none;}
   .about-layout,.proj-featured,.edu-grid{grid-template-columns:1fr;}
   .about-left{border-right:none;border-bottom:1px solid var(--card-border);}
-  .skills-layout,.exp-layout{grid-template-columns:1fr;}
+  .skills-layout,.exp-layout,.testi-layout{grid-template-columns:1fr;}
   .exp-card-inner{grid-template-columns:1fr;}
   .proj-row{grid-template-columns:1fr;}
   .certs-grid{grid-template-columns:1fr;}
@@ -536,6 +554,7 @@ body:not(.cur-hover) #spotlight{opacity:1;}
     <a href="#projects">Projects</a>
     <a href="#certs">Certs</a>
     <a href="#education">Education</a>
+    <a href="#testimonials">Reviews</a>
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
@@ -609,7 +628,7 @@ body:not(.cur-hover) #spotlight{opacity:1;}
       <div class="photo-wrap">
         <div class="photo-glow"></div>
         <div class="photo-frame">
-          <img src="Kashir.JPG" alt="Kashiruddin Shaik" class="photo-img"/>
+          <img src="Kashir.jpg" alt="Kashiruddin Shaik" class="photo-img"/>
         </div>
         <div class="photo-caption">
           <span class="photo-name">Kashiruddin Shaik</span>
@@ -802,12 +821,39 @@ body:not(.cur-hover) #spotlight{opacity:1;}
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="sec-eyebrow"><span class="sec-num">07</span><span class="sec-label">Testimonials</span></div>
+  <h2 class="sec-title reveal">What People <em>Say</em></h2>
+  <div class="testi-layout">
+    <div class="testi-sidebar reveal d1">
+      <p>Kind words from people who've worked closely with me — mentors and colleagues who've seen my work ethic and growth firsthand.</p>
+      <div class="about-divider" style="margin:24px 0;"></div>
+    </div>
+    <div class="testi-cards reveal d2">
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">I had the pleasure of working with Kashiruddin this past semester at Clark University. His dedication to self-improvement has been truly impressive to watch. From mapping out a personalized academic plan, to providing guidance on course selections and career paths, he approached all our meetings with enthusiasm and a growth mindset. His willingness to take on challenges speaks volumes about his commitment to success. It's been rewarding to witness his academic and personal development, and I have no doubt that Kashir will continue to thrive as he pursues his educational and professional goals.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">K</div>
+          <div>
+            <div class="testi-name">Karen Augustyn, M.A.T.</div>
+            <div class="testi-role">Academic Advisor</div>
+            <div class="testi-org">School of Professional Studies · Clark University</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-layout">
     <div class="contact-left reveal">
       <div class="sec-eyebrow" style="margin-bottom:24px;">
-        <span class="sec-num" style="color:rgba(245,240,232,.3)">07</span>
+        <span class="sec-num" style="color:rgba(245,240,232,.3)">08</span>
         <span class="sec-label" style="color:var(--gold)">Contact</span>
       </div>
       <h2 class="sec-title on-dark" style="margin-bottom:32px;">Let's <em>Connect</em></h2>
