@@ -1085,7 +1085,7 @@ const footObs=new IntersectionObserver(entries=>entries.forEach(e=>{
     });
     footObs.unobserve(e.target);
   }
-}),{threshold:.3});
+}),{threshold:.2});
 const footEl=document.querySelector('footer');
 if(footEl)footObs.observe(footEl);
 </script>
